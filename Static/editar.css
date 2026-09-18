@@ -1,0 +1,112 @@
+/* =========================
+   CSS - PÁGINA EDITAR LIVRO
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    color: #1f2937;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #4e024e;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+form {
+    width: 100%;
+    max-width: 550px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+    border: 1px solid #e5e7eb;
+}
+
+form p {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #374151;
+}
+
+input {
+    width: 100%;
+    padding: 14px 15px;
+    font-size: 16px;
+    color: #1f2937;
+    background: #f9fafb;
+    border: 2px solid #dbe1ea;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+input:hover {
+    border-color: #a5b4fc;
+}
+
+input:focus {
+    border-color: #c0a4dc;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 10px;
+    background: #c0a4dc;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+button:hover {
+    background: #4e024e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(79, 70, 229, 0.25);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 25px 15px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    form {
+        padding: 25px 20px;
+    }
+}
