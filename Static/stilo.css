@@ -24,6 +24,111 @@ body {
     padding: 40px 20px;
 }
 
+/* ==============================
+   MENU / BARRA DE TOPO MODERNA
+   ============================== */
+
+.topo-usuario {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff, #fdf8ff);
+    padding: 18px 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(78, 2, 78, 0.08);
+    border: 1px solid #e9dcfc;
+}
+
+.logo-sistema {
+    font-weight: bold;
+    font-size: 18px;
+    color: #4e024e;
+}
+
+/* Caixa que mostra o nome de usuário */
+.usuario-logado {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f3e8ff;
+    color: #4e024e;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid #d8b4fe;
+}
+
+.usuario-logado strong {
+    color: #310131;
+    font-weight: bold;
+}
+
+/* Área dos botões do menu */
+.acoes-usuario {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Botão de adicionar livro no topo */
+.btn-adicionar {
+    background: #4e024e;
+    color: white;
+    padding: 9px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.25s ease;
+    margin-right: 0 !important; /* Limpa margens antigas se houver */
+}
+
+.btn-adicionar:hover {
+    background: #310131;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(78, 2, 78, 0.25);
+    color: white;
+    text-decoration: none;
+}
+
+/* Botão de criar conta no topo */
+.btn-cadastro {
+    background: #c0a4dc;
+    color: white;
+    padding: 9px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.25s ease;
+    margin-right: 0 !important;
+}
+
+.btn-cadastro:hover {
+    background: #4e024e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(192, 164, 220, 0.35);
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsivo para celular */
+@media (max-width: 700px) {
+    .topo-usuario {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .acoes-usuario {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 main,
 form {
     max-width: 800px;

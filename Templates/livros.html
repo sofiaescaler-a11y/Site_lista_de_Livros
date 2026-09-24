@@ -3,43 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Biblioteca</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='stilo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stilo.css') }}">
 </head>
 <body>
-  <main>
-    <h2>Lista de Livros</h2>
+<header class="topo-usuario">
+    <div class="logo-sistema">📚 Minha Biblioteca</div>
 
-      <table>
+    <!-- Mostra o nome de quem está logado dinamicamente -->
+    <div class="usuario-logado">
+        <span>👤</span>
+        {% if session.get('usuario') %}
+            Olá, <strong>{{ session['usuario'] }}</strong>
+        {% else %}
+            Olá, <strong>Visitante</strong>
+        {% endif %}
+    </div>
+
+    <div class="acoes-usuario">
+        <a href="{{ url_for('novo') }}" class="btn-adicionar">+ Novo Livro</a>
+
+        {% if session.get('usuario') %}
+            <a href="{{ url_for('logout') }}" class="btn-cadastro" style="background: #d9534f;">Sair</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn-cadastro">Entrar</a>
+            <a href="{{ url_for('criar_conta') }}" class="btn-cadastro">Criar Conta</a>
+        {% endif %}
+    </div>
+</header>
+<main>
+
+    <table>
         <thead>
-          <tr>
-              <th>Código</th>
-              <th>Título</th>
-              <th>Autor</th>
-              <th>Ano de Publicação</th>
-              <th>Ações</th>
-          </tr>
+        <tr>
+            <th>Código</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Ano de Publicação</th>
+            <th>Ações</th>
+        </tr>
         </thead>
         <tbody>
-            {% for livro in livros %}
+        {% for livro in livros %}
             <tr>
                 <td>{{ livro[0] }}</td>
                 <td>{{ livro[1] }}</td>
                 <td>{{ livro[2] }}</td>
                 <td>{{ livro[3] }}</td>
                 <td>
-                    <a href=" {{ url_for('editar', id=livro[0]) }}">Editar</a>
-                    <form action="{{ url_for('deletar', id=livro[0]) }}" method="post">
-                        <button type="subimit" name="deletar">Deletar</button>
-                    </form>
-                    <form action="{{ url_for('criar', id=livro[0]) }}" method="post">
-                        <button type="subimit" name="criar">+</button>
+                    <a href="{{ url_for('editar', id=livro[0]) }}">Editar</a>
+                    <form action="{{ url_for('deletar', id=livro[0]) }}" method="post" style="display:inline;">
+                        <button type="submit" name="deletar">Deletar</button>
                     </form>
                 </td>
-
             </tr>
-            {% endfor %}
+        {% endfor %}
         </tbody>
-      </table>
-  </main>
+    </table>
+</main>
 </body>
 </html>
