@@ -539,7 +539,29 @@ print("Incluído: novo.html, editar.html, livros.html, deletar.html e static/sti
 /* =================================
    PÁGINA DE NOVO LIVRO
    ================================= */
+.btn-pdf-redondo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #d9534f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+    margin-right: 0 !important;
+}
 
+.btn-pdf-redondo:hover {
+    background-color: #c9302c;
+    transform: translateY(-2px) scale(1.05);
+    color: white;
+    text-decoration: none;
+}
 .pagina-novo {
     min-height: 100vh;
     display: flex;

@@ -22,8 +22,10 @@
     {% endif %}
 {% endwith %}
 
-<form action="{{ url_for('criar') }}" method="post">
+<form action="{{ url_for('criar') }}" method="post" enctype="multipart/from-data">
 
+    <label for="imagem">Capa do livro</label>
+    <input type="file" id="imagem" name="imagem" accept="jpg">
     <p>
         <label for="titulo">Título</label>
         <input type="text" id="titulo" name="titulo" required>

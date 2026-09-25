@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Conta Bloqueada</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stilo.css') }}">
+</head>
+<body>
+<main style="text-align: center; margin-top: 80px;">
+    <h2 style="color: #e74c3c; font-size: 32px;">🚫 Conta Bloqueada</h2>
+
+    <p style="font-size: 18px; margin: 25px 0; color: #374151;">
+        Seu usuário foi bloqueado após várias tentativas incorretas. Por favor, crie uma nova conta.
+    </p>
+
+    <!-- Botão centralizado para criar nova conta -->
+    <div style="margin-top: 35px;">
+        <a href="{{ url_for('criar_cadastro') }}" class="btn" style="background-color: #4e024e; text-decoration: none; padding: 14px 28px; color: white; border-radius: 10px; font-weight: bold; font-size: 16px;">
+            Criar uma Nova Conta
+        </a>
+    </div>
+</main>
+</body>
+</html>

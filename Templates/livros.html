@@ -6,31 +6,31 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='stilo.css') }}">
 </head>
 <body>
-<header class="topo-usuario">
-    <div class="logo-sistema">📚 Minha Biblioteca</div>
 
-    <!-- Mostra o nome de quem está logado dinamicamente -->
-    <div class="usuario-logado">
-        <span>👤</span>
-        {% if session.get('usuario') %}
-            Olá, <strong>{{ session['usuario'] }}</strong>
-        {% else %}
-            Olá, <strong>Visitante</strong>
-        {% endif %}
-    </div>
+<!-- BARRA DE TOPO COM O NOME DO USUÁRIO -->
+<div class="topo-usuario">
+    <div class="logo-sistema">📚 Sistema de Livros</div>
 
-    <div class="acoes-usuario">
-        <a href="{{ url_for('novo') }}" class="btn-adicionar">+ Novo Livro</a>
+    {% if session.get('usuario') %}
+        <div class="usuario-logado">
+            Olá, <strong>{{ session.get('usuario') }}</strong>
+        </div>
+        <div class="acoes-usuario">
+            <a href="{{ url_for('novo') }}" class="btn-adicionar">Adicionar Livro</a>
+            <a href="{{ url_for('relatorio') }}" class="btn-pdf-redondo" title="Baixar PDF">PDF</a>
+            <a href="{{ url_for('logout') }}" class="btn-cadastro" style="background: #e74c3c;">Sair</a>
+        </div>
+    {% else %}
+        <div class="acoes-usuario">
+            <a href="{{ url_for('login') }}" class="btn-adicionar">Entrar</a>
+            <a href="{{ url_for('criar_cadastro') }}" class="btn-cadastro">Criar Conta</a>
+        </div>
+    {% endif %}
+</div>
 
-        {% if session.get('usuario') %}
-            <a href="{{ url_for('logout') }}" class="btn-cadastro" style="background: #d9534f;">Sair</a>
-        {% else %}
-            <a href="{{ url_for('login') }}" class="btn-cadastro">Entrar</a>
-            <a href="{{ url_for('criar_conta') }}" class="btn-cadastro">Criar Conta</a>
-        {% endif %}
-    </div>
-</header>
+<!-- TABELA DE LIVROS -->
 <main>
+    <h2>Lista de Livros</h2>
 
     <table>
         <thead>
@@ -39,9 +39,11 @@
             <th>Título</th>
             <th>Autor</th>
             <th>Ano de Publicação</th>
+            <th>Utilizador</th>
             <th>Ações</th>
         </tr>
         </thead>
+
         <tbody>
         {% for livro in livros %}
             <tr>
@@ -49,6 +51,7 @@
                 <td>{{ livro[1] }}</td>
                 <td>{{ livro[2] }}</td>
                 <td>{{ livro[3] }}</td>
+                <td>{{ livro[4] }}</td> <!-- Nome de quem cadastrou -->
                 <td>
                     <a href="{{ url_for('editar', id=livro[0]) }}">Editar</a>
                     <form action="{{ url_for('deletar', id=livro[0]) }}" method="post" style="display:inline;">
@@ -60,5 +63,6 @@
         </tbody>
     </table>
 </main>
+
 </body>
 </html>
